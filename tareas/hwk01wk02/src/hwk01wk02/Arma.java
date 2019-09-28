@@ -12,36 +12,38 @@ package hwk01wk02;
 public class Arma {
     
     // Atributos
-    private String nombreFabricante;
-    private String tipoDeArma;
+    private int anioCreacion;
+    private String tipoArma;
 
-    public Arma() {
+    // Constructores
+    public Arma(){
     }
 
-    public Arma(String nombreFabricante, String tipoDeArma) {
-        this.nombreFabricante = nombreFabricante;
-        this.tipoDeArma = tipoDeArma;
+    public Arma(int anioCreacion, String tipoArma) {
+        this.anioCreacion = anioCreacion;
+        this.tipoArma = tipoArma;
+    }
+    
+    // Metodos
+    public int getAnioCreacion() {
+        return anioCreacion;
     }
 
-    public String getTipoDeArma() {
-        return tipoDeArma;
+    public void setAnioCreacion(int anioCreacion) {
+        this.anioCreacion = anioCreacion;
     }
 
-    public void setTipoDeArma(String tipoDeArma) {
-        this.tipoDeArma = tipoDeArma;
+    public String getTipoArma() {
+        return tipoArma;
     }
 
-    public String getNombreFabricante() {
-        return nombreFabricante;
-    }
-
-    public void setNombreFabricante(String nombreFabricante) {
-        this.nombreFabricante = nombreFabricante;
+    public void setTipoArma(String tipoArma) {
+        this.tipoArma = tipoArma;
     }
 
     @Override
     public String toString() {
-        return "Arma{" + "nombreFabricante=" + nombreFabricante + ", tipoDeArma=" + tipoDeArma + '}';
+        return "Arma{" + "anioCreacion=" + anioCreacion + ", tipoArma=" + tipoArma + '}';
     }
     
 }
