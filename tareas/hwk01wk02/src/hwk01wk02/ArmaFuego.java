@@ -12,14 +12,7 @@ package hwk01wk02;
 public class ArmaFuego extends Arma{
     
     // Atributos
-    String calibre;
-    String tipoArmaFuego;
-    String formatoDisparo;
-
-    public ArmaFuego() {
-        super();
-    }
-
-    
+    private String clasificacionArmaDeFuego;
+     
     
 }

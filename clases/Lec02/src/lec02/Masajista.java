@@ -50,6 +50,4 @@ public class Masajista extends SeleccionFutbol{
         return "Masajista{" + super.toString() + "titulacion=" + titulacion + ", aniosExperiencia=" + aniosExperiencia + '}';
     }
     
-    
-    
 }

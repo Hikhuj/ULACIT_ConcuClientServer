@@ -9,6 +9,6 @@ package hwk01wk02;
  *
  * @author roger
  */
-public class ArmaExplosiva {
+public class ArmaDestruccionMasiva {
     
 }
