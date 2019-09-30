@@ -9,7 +9,7 @@ package lec03;
  *
  * @author roger
  */
-public class Administrador extends Empleado{
+public abstract class Administrador extends Empleado{
     
     private String puesto;
     private int aniosExperiencia;
@@ -49,6 +49,11 @@ public class Administrador extends Empleado{
         System.out.println("Administrar casa de empleados");
         System.out.println("Cambio de equipos");
         System.out.println("Contratacion personal");
+    }
+    
+    @Override
+    public void calcularSalario(){
+        System.out.println("Imprime calcular salario de Administrador");
     }
     
 }

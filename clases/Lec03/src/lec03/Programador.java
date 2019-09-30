@@ -9,7 +9,7 @@ package lec03;
  *
  * @author roger
  */
-public class Programador extends Empleado{
+public abstract class Programador extends Empleado{
     
     private String lenguajesProgramacion;
 

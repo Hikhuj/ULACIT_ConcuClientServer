@@ -67,7 +67,6 @@ public abstract class Empleado {
         System.out.println("El lugar de trabajo es: " + lugar);
     }
     
-    @Override
-    public abstract void calcularSalario(){}
+    public abstract void calcularSalario();
     
 }
