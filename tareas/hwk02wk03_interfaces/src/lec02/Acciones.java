@@ -10,9 +10,11 @@ package lec02;
  * @author roger
  */
 public interface Acciones {
-    
+
     public void respirar();
-    
+
     public void observar();
-    
+
+    public void anotar();
+
 }
