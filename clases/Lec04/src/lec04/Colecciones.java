@@ -65,6 +65,7 @@ public class Colecciones {
         
     }
     
+    // Metodo para probar COMPARATOR
     public void probarOrdenamientoSetComparador(){
         
         Comparator c = new ComparadorNombre();

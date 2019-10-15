@@ -27,6 +27,33 @@ public class Lec04 {
         System.out.println("-----------------------------------------------");
         c.probarOrdenamientoSetComparador();
         
+        /*
+            Formato de llamado
+            |
+            |--> El metodo MAIN llama a COLECCIONES.java
+                |
+                |--> COLECCIONES.java >> Tiene metodo COMPARADOR.
+                    |
+                    |--> El metodo que va a trabajar con el comparador 
+                         va a instanciar una clase que contiene 
+                         la INTERFACE de COMPARATOR donde se ejecuta la evaluaciona
+                         luego devuelve la evaluacion a una ITERACION que esta
+                         en el metodo de COLECCIONES.java que interactua con COMPARADOR
+        */
+        
+        /*
+            Resumen de Proceso:
+            
+            Para crear una comparacion de deben hacer ciertos pasos
+             - Instanciar una clase de Colecciones
+             - De la clase Colecciones crear un metodo 
+                que realice la comparacion de cada objeto 
+                de la lista generica.
+             - De la instancia de Colecciones, instanciar una
+                Interface Comparator para la comparacion de cada uno de los
+                dos objetos que recibe y retorna el resultado.
+        */
+        
     }
     
 }

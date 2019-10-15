@@ -58,6 +58,7 @@ public class Estudiante implements Comparable{
         this.ponderado = ponderado;
     }
     
+    // Metodo de INTERFACE COMPARABLE
     @Override
     public int compareTo(Object o){
         // Con esto vamos a hacer que ordenamos la lista por el promedio ponderado
