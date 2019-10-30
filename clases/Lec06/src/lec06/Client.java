@@ -8,7 +8,9 @@ package lec06;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +24,20 @@ public class Client {
     private static final int port = 5432;
     
     public static void main(String[] args){
+        
+        try{
+            InetAddress IP = InetAddress.getLocalHost();
+            System.out.println(IP.toString());
+            System.out.println("-----------");
+            System.out.println(InetAddress.getLocalHost().getHostAddress());
+            System.out.println(InetAddress.getLocalHost().getHostAddress());
+            
+        }catch(UnknownHostException ex){
+            System.out.println("IP not found");
+        }
+        
+        
+        /*
         Socket s1 = null;
         
         try {
@@ -45,6 +61,7 @@ public class Client {
            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
            System.out.println("Error");
         }
+        */
         
     }
     

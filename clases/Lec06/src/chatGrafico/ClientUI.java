@@ -3,44 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lec06;
+package chatGrafico;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author rogerjoseulaterivera
  */
-public class clientGraphic extends javax.swing.JFrame {
+public class ClientUI extends javax.swing.JFrame {
 
+    /*
+    *   @author: custom instances
+    */
+    Backend backend = new Backend();
+    
     /**
      * Creates new form clientGraphic
      */
-    public clientGraphic() {
+    public ClientUI() {
         initComponents();
     }
     
-    // Verificar que no hayan campos vacios
     public boolean verificaNombreVacio() {
-        //metodo que verifica que el usuario no deje camppos sin rellenar 
+        
+        /*
+            Metodo verifica que no hayan campos vacios que puedan
+            ser definidos como requeridos
+        */
+        
+        // Vars
         boolean result = false;
 
         if (ipNumberTxtF.getText().isEmpty() && portNumberTxtF.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor llenar el campo");
+            JOptionPane.showMessageDialog(null, "Por favor llenar los campos requeridos.");
         } else {
             result = true;
             btn_send.setEnabled(true);
         }
 
         return result;
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,19 +56,24 @@ public class clientGraphic extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        label_nombreDeChat = new javax.swing.JLabel();
         btn_send = new javax.swing.JButton();
         chatTxtArea = new javax.swing.JTextField();
         ipNumberTxtF = new javax.swing.JTextField();
         portNumberTxtF = new javax.swing.JTextField();
         ipUIMessage = new javax.swing.JLabel();
         portUIMessage = new javax.swing.JLabel();
+        jrecommendedPort = new javax.swing.JLabel();
+        btnVerIP = new javax.swing.JButton();
+        jlbl_verIPLocal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Chat de la caja");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        label_nombreDeChat.setText("Chat Lammer: Cliente");
+        jPanel1.add(label_nombreDeChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         btn_send.setText("Enviar");
         btn_send.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,61 +86,71 @@ public class clientGraphic extends javax.swing.JFrame {
                 btn_sendActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-
-        chatTxtArea.setText("jTextField1");
-        getContentPane().add(chatTxtArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 340, 40));
+        jPanel1.add(btn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jPanel1.add(chatTxtArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 70));
 
         ipNumberTxtF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ipNumberTxtFActionPerformed(evt);
             }
         });
-        getContentPane().add(ipNumberTxtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 90, -1));
+        jPanel1.add(ipNumberTxtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 120, -1));
 
         portNumberTxtF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 portNumberTxtFActionPerformed(evt);
             }
         });
-        getContentPane().add(portNumberTxtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 90, -1));
+        jPanel1.add(portNumberTxtF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 90, -1));
 
-        ipUIMessage.setText("Conectarse a la ip");
-        getContentPane().add(ipUIMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        ipUIMessage.setText("Conectarse a la ip:");
+        jPanel1.add(ipUIMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        portUIMessage.setText("Con el puerto");
-        getContentPane().add(portUIMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        portUIMessage.setText("Con el puerto:");
+        jPanel1.add(portUIMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 20));
+
+        jrecommendedPort.setText("Recomendado: 5432");
+        jPanel1.add(jrecommendedPort, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
+
+        btnVerIP.setText("Ver IP Local");
+        btnVerIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerIPActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVerIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 100, -1));
+        jPanel1.add(jlbl_verIPLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 120, 20));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sendActionPerformed
-        // TODO add your handling code here:
+
+        /*
+        *   Boton de accion que realiza la conexion y envia tambien el mensaje
+        *   al servidor al que se conecta
+        */
         
+        // Verifica que no hayan valores vacios requeridos
         if(verificaNombreVacio()){
-            Socket s1 = null;
+            
+            // Crear instancia para conectar y enviar mensaje
+            backend.clientMessageAndConnection(ipNumberTxtF.getText(), portNumberTxtF.getText(), chatTxtArea.getText());
         
-            try {
-                s1 = new Socket(ipNumberTxtF.getText(), Integer.parseInt(portNumberTxtF.getText()));
-            } catch (IOException ex) {
-                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Error de conexion al servidor, IP o Puerto no son correctos o bien no esta conectado a una conexion de red");
-            }
-
-            DataInputStream dis;
-            DataOutputStream dos;
-
-            try{
-                dos = new DataOutputStream(s1.getOutputStream());
-                dis = new DataInputStream(s1.getInputStream());
-                dos.writeUTF(chatTxtArea.getText());
-                System.out.println(dis.readUTF());
-                dis.close();
-                s1.close();
-            }catch (IOException ex){
-               Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-               System.out.println("Error");
-            }
+            // Limpiar texto del chat
+            chatTxtArea.setText(null); 
+            
         }
         
     }//GEN-LAST:event_btn_sendActionPerformed
@@ -150,6 +171,18 @@ public class clientGraphic extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_sendMouseClicked
 
+    private void btnVerIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerIPActionPerformed
+        
+        /*
+        *   El boton obtiene la IP local donde se este ejecutando el programa en el momento
+        */
+        
+        // Get local IP of LocalHost 
+        jlbl_verIPLocal.setText(backend.getIpToClient());
+        
+        
+    }//GEN-LAST:event_btnVerIPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -167,30 +200,37 @@ public class clientGraphic extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(clientGraphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(clientGraphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(clientGraphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(clientGraphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new clientGraphic().setVisible(true);
+                new ClientUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVerIP;
     private javax.swing.JButton btn_send;
     private javax.swing.JTextField chatTxtArea;
     private javax.swing.JTextField ipNumberTxtF;
     private javax.swing.JLabel ipUIMessage;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlbl_verIPLocal;
+    private javax.swing.JLabel jrecommendedPort;
+    private javax.swing.JLabel label_nombreDeChat;
     private javax.swing.JTextField portNumberTxtF;
     private javax.swing.JLabel portUIMessage;
     // End of variables declaration//GEN-END:variables
