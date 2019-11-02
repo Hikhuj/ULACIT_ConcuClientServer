@@ -25,6 +25,9 @@ import lec06.Client;
  */
 public class Backend {
     
+    // Attributes
+    private String clienteMessageToServer;
+    
     public void clientMessageAndConnection(String ipNumber, String portNumber, String chatMessage){
         
         Socket s1 = null;
@@ -86,6 +89,7 @@ public class Backend {
         
         // Crear objeto nulo de socket
         ServerSocket serverSocket = null;
+        String mensaje = "";
             
         // Metemos en try/catch la conexion con el fin de que si falla, devuelva un mensaje
         try{
@@ -108,10 +112,10 @@ public class Backend {
                 
                 dis = new DataInputStream(s1.getInputStream());
                 dos = new DataOutputStream(s1.getOutputStream());
-                String mensaje = dis.readUTF();
-                System.out.println("Enviando de: " + mensaje);
-                dos.writeUTF("Peticion realizada...");
-                s1.close();
+                // Mensaje recibido por el cliente externo
+                setClienteMessageToServer(dis.readUTF());
+                //dos.writeUTF("Peticion realizada...");
+                //s1.close();
                 System.out.println("Cliente cerrado");
             } catch (IOException ex){
                 System.out.println("Socket Connection Error " + ex.getMessage());
@@ -119,5 +123,15 @@ public class Backend {
         }
         
     }
+
+    public String getClienteMessageToServer() {
+        return clienteMessageToServer;
+    }
+
+    public void setClienteMessageToServer(String clienteMessageToServer) {
+        this.clienteMessageToServer = clienteMessageToServer;
+    }
+    
+    
     
 }

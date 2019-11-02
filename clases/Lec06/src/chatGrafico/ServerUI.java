@@ -23,6 +23,8 @@ public class ServerUI extends javax.swing.JFrame {
      */
     public ServerUI() {
         initComponents();
+        // devuelve el mensaje del cliente al servidor
+        backend.getClienteMessageToServer();
     }
     
     public boolean verificaNombreVacio() {
@@ -70,6 +72,12 @@ public class ServerUI extends javax.swing.JFrame {
 
         jLabel2.setText("Chat Lammer: Servidor");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+
+        chatTxtArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chatTxtAreaActionPerformed(evt);
+            }
+        });
         getContentPane().add(chatTxtArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 360, 90));
 
         ipUIMessage.setText("Encender servidor:");
@@ -109,11 +117,9 @@ public class ServerUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jYesOnServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jYesOnServerActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+
         backend.serverMessageConnectionReceiver(Integer.parseInt(portNumberTxtF.getText()));
+        chatTxtArea.setText(backend.getClienteMessageToServer());
         
     }//GEN-LAST:event_jYesOnServerActionPerformed
 
@@ -130,7 +136,14 @@ public class ServerUI extends javax.swing.JFrame {
 
     private void portNumberTxtFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portNumberTxtFActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_portNumberTxtFActionPerformed
+
+    private void chatTxtAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chatTxtAreaActionPerformed
+        
+        
+    }//GEN-LAST:event_chatTxtAreaActionPerformed
 
     /**
      * @param args the command line arguments
