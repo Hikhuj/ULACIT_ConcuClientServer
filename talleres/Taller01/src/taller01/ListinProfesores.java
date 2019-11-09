@@ -9,7 +9,7 @@ package taller01;
  *
  * @author roger
  */
-public interface ListinProfesor {
+public interface ListinProfesores {
     
     public void llenarDatos();
     

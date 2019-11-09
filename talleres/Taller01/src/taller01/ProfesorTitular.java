@@ -5,11 +5,15 @@
  */
 package taller01;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 /**
  *
  * @author roger
  */
-public class ProfesorTitular extends Profesor{
+public class ProfesorTitular extends Profesor implements ListinProfesores{
     
     // Atributos
     private String fechaNombrado;
@@ -19,8 +23,8 @@ public class ProfesorTitular extends Profesor{
         super();
     }
 
-    public ProfesorTitular(String nombre, String apellido, int edad, int idProfesor, double salario, int cantidadClases, String FechaNombrado) {
-        super(nombre, apellido, edad, idProfesor, salario, cantidadClases);
+    public ProfesorTitular(String nombre, String apellido, int edad, int idProfesor, int cantidadClases, String FechaNombrado) {
+        super(nombre, apellido, edad, idProfesor, cantidadClases);
         this.fechaNombrado = FechaNombrado;
     }
     
@@ -38,13 +42,47 @@ public class ProfesorTitular extends Profesor{
         return "ProfesorTitular{" + super.toString() + "FechaNombrado=" + fechaNombrado + '}';
     }
     
-    /*
-    *
-    *   METODO PENDIENTE DE REVISAR JUNTO CON LOS ATRIBUTOS
-    *
-    */
-    public void desplegarAniosExperiencia(){
-        //System.out.println(Integer.parseInt(this.fechaNombrado) - Integer.parseInt(tFECHA ACTUAL));
+    public long desplegarAniosExperiencia(){
+    
+        /*
+        *
+        *   Metodo DesplegarAniosExperiencia(); debe calcular atraves de la variable
+        *   FechaNombrado - FechaActual <<<- esta ultima debe obtenerse de alguna forma
+        *
+        */
+        
+        // Var
+        long result;
+        
+        // Crear instance de tipo DateTimeFormatter enviando patron de fecha deseado Parametro
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        
+        // Pasar fechas de esta clase como parametro y formatear a patron de fecha deseado
+        // $inicio debe ser < a $fin para un correcto calculo sin problemas futuros
+        LocalDate inicio = LocalDate.parse("" + this.fechaNombrado, formatoFecha);
+        LocalDate fechaLocal = LocalDate.now();
+        
+        // Obtener cantidad de dias entre un minimo y un maximo de fecha.
+        long cantidadDias = ChronoUnit.DAYS.between(inicio, fechaLocal);
+        
+        if(cantidadDias > 0){
+            result = cantidadDias;
+        }else{
+            result = cantidadDias * - 1;
+        }
+        
+        return result;
+        
+    }
+    
+    @Override
+    public void llenarDatos(){
+        
+    }
+    
+    @Override
+    public void calcularSalario(){
+        
     }
     
 }
