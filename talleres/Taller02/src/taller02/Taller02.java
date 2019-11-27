@@ -24,7 +24,18 @@ public class Taller02 {
         *
         */
         
+        // Atributos
+        Hilo hilo1;
+        int cantidadCompetidores;
         
+        // Cantidad de competidores
+        cantidadCompetidores = 10;
+        
+        
+        
+        for (int i = 0; i < 10; i++) {
+            hilo1 = new Hilo("Competidor");
+        }
         
     }
     

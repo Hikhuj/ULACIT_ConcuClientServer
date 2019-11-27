@@ -5,6 +5,8 @@
  */
 package taller02;
 
+import java.util.List;
+
 /**
  *
  * @author roger
@@ -12,25 +14,28 @@ package taller02;
 public class Hilo implements Runnable{
     
     // Atributos
-    private String nombreCompetidor;
-    private String numeroCompetidor;
+    private int numeroCompetidores;
+    private int cantidadTirosCompetidores;
+    private List<String> nombreCompetidores;
     
     // Constructor
     public Hilo(){
-        
     }
     
-    public Hilo(String nombre){
-        
+    public Hilo(String nombreCompetidor){
+        this.nombreCompetidor = nombreCompetidor;
+        Thread t = new Thread();
     }
-    
     
     // Ejecucion del hilo
     @Override
     public void run(){
         
-        
+        for (int i = 0; i < this.numeroCompetidor; i++) {
+            
+        }
         
     }
+    
     
 }
