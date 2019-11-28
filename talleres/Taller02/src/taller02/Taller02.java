@@ -31,6 +31,18 @@ public class Taller02 {
         // Cantidad de competidores
         cantidadCompetidores = 10;
         
+        String competidoresArray[] = new String[cantidadCompetidores];
+        
+        competidores = ["A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H",
+                        "I",
+                        "J"];
         
         
         for (int i = 0; i < 10; i++) {
