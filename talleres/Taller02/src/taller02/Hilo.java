@@ -53,8 +53,11 @@ public class Hilo implements Runnable{
                 
                 // JUGADOR DISPARA Y ANOTA
                 anotacion = generarAnotacion();
-                System.out.println("Jugador " + getNombreCompetidor() + " dispara y anota: " + anotacion);
+                System.out.println("Competidor " + getNombreCompetidor() + " dispara y anota: " + anotacion);
                 Thread.sleep(generarTiempoDisparo());
+                
+                anotacion = anotacion + 1;
+                
             }
             
         }catch(InterruptedException e){
