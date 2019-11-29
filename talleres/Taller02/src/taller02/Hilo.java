@@ -23,58 +23,47 @@ public class Hilo implements Runnable{
     private int disparoMin = 20;
     private int disparoMax = 50;
     private int anotacion = 0;
-    private int puntuacion;
-    Thread t;
+    private int puntuacionTotal = 0;
     
-    
-    // Constructor
-    public Hilo(){
-        t = new Thread(this,"Hilo 1");
-        t.start();
-    }
-    
-    public Hilo(String nombreCompetidor){
+    public Hilo(String nombreCompetidor, int cantidadTiros){
         this.nombreCompetidor = nombreCompetidor;
-        t = new Thread("Hilo 1");
-        t.start();
+        this.cantidadTiros = cantidadTiros;
     }
-    
+
     // Ejecucion del hilo
     @Override
     public void run(){
         
-        try{
+        for (int i = 0; i < this.cantidadTiros; i++) {
             
-            // Iteracion que permite a jugador disparar 10 tiros
-            for (int i = 0; i < cantidadTiros; i++) {
-                // JUGADOR APUNTA
-                System.out.println("Competidor " + getNombreCompetidor() + " apunta.");
+            int puntuacion;
+            
+            try{
+                // Tirador Apunta
                 Thread.sleep(generarTiempoApuntar());
+                System.out.println("Competidor " + this.nombreCompetidor + " apunta");
                 
-                // JUGADOR DISPARA Y ANOTA
-                anotacion = generarAnotacion();
-                System.out.println("Competidor " + getNombreCompetidor() + " dispara y anota: " + anotacion);
+                // Tirador Dispara
                 Thread.sleep(generarTiempoDisparo());
+                System.out.println("Competidor " + this.nombreCompetidor + " dispara");
                 
-                anotacion = anotacion + 1;
+                puntuacion = generarAnotacion();
                 
+                System.out.println("Score de " + this.nombreCompetidor + "= " + puntuacion);
+                
+                this.puntuacionTotal += puntuacion;
+                
+                
+            }catch(InterruptedException ex){
+                System.out.println("Error: " + ex);
             }
-            
-        }catch(InterruptedException e){
-            System.out.println("Error: " + e);
         }
+        
+        System.out.println("Puntuacion total de " + this.nombreCompetidor + "= " + this.puntuacionTotal);
         
     }
     
     // Metodos
-    public void setNombreCompetidor(String nombreCompetidor){
-        this.nombreCompetidor = nombreCompetidor;
-    }
-    
-    public String getNombreCompetidor(){
-        return this.nombreCompetidor;
-    }
-    
     public int generarAnotacion(){
         return ThreadLocalRandom.current().nextInt(puntuacionMin, puntuacionMax + 1);
     }
@@ -86,6 +75,5 @@ public class Hilo implements Runnable{
     public int generarTiempoApuntar(){
         return ThreadLocalRandom.current().nextInt(esperaMin, esperaMax + 1);
     }
-    
     
 }

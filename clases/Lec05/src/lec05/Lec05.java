@@ -23,6 +23,8 @@ public class Lec05 {
         Proceso1 hilo3 = new Proceso1();
         */
         
+                    /*
+                        Este es para cuando se usa el hilo por medio de IMPLEMENTS + RUNNABLE
         //        // 2
         //        Proceso1 hilo1 = new Proceso1("Hilo 1");
         //        Proceso1 hilo3 = new Proceso1("Hilo 2");
@@ -30,6 +32,7 @@ public class Lec05 {
         //        hilo3.valorCondicion(30);
         //        // La implementacion para que Proceso 2 herede del Proceso 1
         //        Thread hilo2 = new Thread(new Proceso2());
+                    */
         //        
         //          hilo1.start();
         ////        try{
