@@ -34,6 +34,11 @@ public class Taller02 {
         // Enviar datos de hilo
         Hilo hilo1;
         
+        
+        
+        // Crear arreglo de hilos
+        // Inicializar los arreglos
+        
         // Iteracion que reciba cada nombre de competidor
         for (int i = 0; i < competidoresArray.length; i++) {
             
@@ -43,41 +48,6 @@ public class Taller02 {
             thread.start();
             
         }
-
-        
-        // Suma sencilla
-        // 
-        /*
-        HiloSuma hilosSumas;
-        
-        Thread[] threads = new Thread[5];
-        
-        int[] numeros = new int[5];
-        
-        for (int i = 0; i < 5; i++) {
-            
-            // Inicializacion de Instancia de Hilo
-            hilosSumas = new HiloSuma(numeros,i);
-            
-            threads[i] = new Thread(hilosSumas);
-            
-            threads[i].start();
-            
-        }
-        
-        for (int i = 0; i < 5; i++) {
-            
-            try{
-                threads[i].join();
-            }catch(InterruptedException ex){
-                System.out.println("Error: " + ex);
-            }
-        }
-        
-        for (int i = 0; i < 5; i++) {
-            System.out.println(numeros[i]);
-        }
-        */
         
         
     }

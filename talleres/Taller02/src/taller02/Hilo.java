@@ -25,6 +25,10 @@ public class Hilo implements Runnable{
     private int anotacion = 0;
     private int puntuacionTotal = 0;
     
+    // Constructores
+    public Hilo(){
+    }
+    
     public Hilo(String nombreCompetidor, int cantidadTiros){
         this.nombreCompetidor = nombreCompetidor;
         this.cantidadTiros = cantidadTiros;
