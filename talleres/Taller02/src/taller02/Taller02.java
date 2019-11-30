@@ -28,27 +28,27 @@ public class Taller02 {
         */
         
         
-//        // Cantidad de competidores
-        int cantidadTiros = 10;
-        
-        // Nombres de competidores
-        String[] competidoresArray = {"A","B","C","D","E","F","G","H","I","J"};
-        
-        // Enviar datos de hilo
-        Hilo hilo1;
-        
-        // Crear arreglo de hilos
-        // Inicializar los arreglos
-        
-        // Iteracion que reciba cada nombre de competidor
-        for (int i = 0; i < competidoresArray.length; i++) {
-            
-            hilo1 = new Hilo(competidoresArray[i], cantidadTiros);
-            Thread thread = new Thread(hilo1);
-            
-            thread.start();
-            
-        }
+        ////        // Cantidad de competidores
+        //        int cantidadTiros = 10;
+        //        
+        //        // Nombres de competidores
+        //        String[] competidoresArray = {"A","B","C","D","E","F","G","H","I","J"};
+        //        
+        //        // Enviar datos de hilo
+        //        Hilo hilo1;
+        //        
+        //        // Crear arreglo de hilos
+        //        // Inicializar los arreglos
+        //        
+        //        // Iteracion que reciba cada nombre de competidor
+        //        for (int i = 0; i < competidoresArray.length; i++) {
+        //            
+        //            hilo1 = new Hilo(competidoresArray[i], cantidadTiros);
+        //            Thread thread = new Thread(hilo1);
+        //            
+        //            thread.start();
+        //            
+        //        }
         
         
         

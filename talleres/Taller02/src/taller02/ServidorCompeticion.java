@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,16 +24,39 @@ public class ServidorCompeticion extends javax.swing.JFrame {
     // ATRIBUTOS, DECLARACIONES E INSTANCIAS
     int cantidadTirosCompetencia = 10;
     String[] listaNombresCompetidores;
-    private static final String ip = "127.0.0.1";
+    //private static final String ip = "127.0.0.1";
     private static final int port = 5432;
+    ArrayList<Resultado> listaResultadosCompetidor = new ArrayList<Resultado>();
+    
+    Backend backend = new Backend();
     
     /**
      * Creates new form ClienteCompeticion
      */
     public ServidorCompeticion() {
         initComponents();
+        backend.getClienteMessageToServer();
     }
 
+    public void mostrar() {// refresh de la tabla cada vez que sea grega uno nuevo
+
+        String matris[][] = new String[listaResultadosCompetidor.size()][4];
+        for (int i = 0; i < listaResultadosCompetidor.size(); i++) {
+
+            matris[i][0] = listaResultadosCompetidor.get(i).getNombre();
+            matris[i][1] = listaResultadosCompetidor.get(i).getPromedioApunte();
+            matris[i][2] = listaResultadosCompetidor.get(i).getPromedioDisparo();
+            matris[i][3] = listaResultadosCompetidor.get(i).getPuntajeTotal();
+        }
+
+        jT_tablaCompeticion.setModel(new javax.swing.table.DefaultTableModel( // para que se muestre mi tbala
+                matris,
+                new String[]{
+                    "Nombre Competidor", "Promedio Apunte", "Promedio Disparo", "Puntaje Total"
+                }
+        ));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +71,7 @@ public class ServidorCompeticion extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jT_tablaCompeticion = new javax.swing.JTable();
+        JBtn_encender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,10 +113,35 @@ public class ServidorCompeticion extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 540, 430));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 590));
+        JBtn_encender.setText("Encender");
+        JBtn_encender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_encenderMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JBtn_encender, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBtn_encenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_encenderMouseClicked
+        
+        backend.serverMessageConnectionReceiver(port);
+        
+        String uno = backend.getClienteMessageToServer();
+        String dos = backend.getClienteMessageToServer();
+        String tres = backend.getClienteMessageToServer();
+        String cuatro = backend.getClienteMessageToServer();
+        
+        Resultado resultado = new Resultado(uno, dos, tres, cuatro);
+        
+        listaResultadosCompetidor.add(resultado);
+        
+        mostrar();
+
+    }//GEN-LAST:event_JBtn_encenderMouseClicked
 
     /**
      * @param args the command line arguments
@@ -127,9 +177,11 @@ public class ServidorCompeticion extends javax.swing.JFrame {
                 new ServidorCompeticion().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBtn_encender;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;

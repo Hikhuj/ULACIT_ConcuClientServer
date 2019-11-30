@@ -16,17 +16,19 @@ public class ClienteCompeticion extends javax.swing.JFrame {
 
     ArrayList<Resultado> listaResultados = new ArrayList<>();
     
+    String [][] tablaCompetidores = new String[10][4];
+    
     // Cantidad de competidores
     int cantidadTiros = 10;
-    
-    // INSTANCIAS
-    Resultado resultados;
     
     // Nombres de competidores
     String[] competidoresArray = {"A","B","C","D","E","F","G","H","I","J"};
     
     // Enviar datos de hilo
     Hilo hilo;
+    
+    // Backend de TCP/IP
+    Backend backend = new Backend();
     
     public class Hilo implements Runnable{
     
@@ -44,14 +46,16 @@ public class ClienteCompeticion extends javax.swing.JFrame {
         // Generar un arreglo T=> String que almacene >> Nombre | % Apunte | % Disparo | ScoreFinal
         private double promedioApunte = 0.0;
         private double promedioDisparo = 0.0;
+        private int numeroTirador;
 
         // Constructores
         public Hilo(){
         }
 
-        public Hilo(String nombreCompetidor, int cantidadTiros){
+        public Hilo(String nombreCompetidor, int cantidadTiros, int tirador){
             this.nombreCompetidor = nombreCompetidor;
             this.cantidadTiros = cantidadTiros;
+            this.numeroTirador = tirador;
         }
 
         // Ejecucion del hilo
@@ -107,13 +111,14 @@ public class ClienteCompeticion extends javax.swing.JFrame {
             promedioDisparo = promedioDisparo / 10;
             System.out.println("Promedio de disparo " + promedioDisparo);
             
-            // Crear objeto de tipo Resultado
-            resultados = new Resultado(nombreCompetidor,promedioApunte,promedioDisparo,puntuacionTotal);     
+            // Generar conexion a server
+            // backend.clientMessageAndConnection(nombreCompetidor,promedioApunte + "",promedioDisparo + "",puntuacionTotal + "");
             
-            // Agregar Objeto de tipo Resultado a un ArrayList
-            listaResultados.add(resultados);
+            String [] datosTirador = {nombreCompetidor,promedioApunte + "",promedioDisparo + "",puntuacionTotal + ""};
             
-            
+            for (int j = 0; j < tablaCompetidores[numeroTirador].length; j++) {
+                tablaCompetidores[numeroTirador][j] = datosTirador[j];
+            }
             
         }
 
@@ -138,15 +143,30 @@ public class ClienteCompeticion extends javax.swing.JFrame {
     
     public void ejecutarHilo(){
 
+        int tirador = 0;
+        
         // Iteracion que crea los hilos y envia la informacion para ser procesada
         for (int i = 0; i < competidoresArray.length; i++) {
             
-            hilo = new Hilo(competidoresArray[i], cantidadTiros);
+            hilo = new Hilo(competidoresArray[i], cantidadTiros, tirador);
             Thread thread = new Thread(hilo);
             
             thread.start();
             
         }
+        
+    }
+    
+    public void imprimirTablaCompetidores(){
+        
+        for (int i = 0; i < this.tablaCompetidores.length; i++) {
+            System.out.println("");
+            for (int j = 0; j < this.tablaCompetidores[i].length; j++) {
+                System.out.print(tablaCompetidores[i][j]);
+                System.out.println(",");
+            }
+        }
+        
     }
     
     /**
