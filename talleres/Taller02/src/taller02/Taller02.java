@@ -5,6 +5,9 @@
  */
 package taller02;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author roger
@@ -25,7 +28,7 @@ public class Taller02 {
         */
         
         
-        // Cantidad de competidores
+//        // Cantidad de competidores
         int cantidadTiros = 10;
         
         // Nombres de competidores
@@ -33,8 +36,6 @@ public class Taller02 {
         
         // Enviar datos de hilo
         Hilo hilo1;
-        
-        
         
         // Crear arreglo de hilos
         // Inicializar los arreglos
@@ -48,6 +49,8 @@ public class Taller02 {
             thread.start();
             
         }
+        
+        
         
         
     }

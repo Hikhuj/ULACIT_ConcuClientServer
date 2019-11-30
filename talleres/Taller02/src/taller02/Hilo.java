@@ -24,6 +24,8 @@ public class Hilo implements Runnable{
     private int disparoMax = 50;
     private int anotacion = 0;
     private int puntuacionTotal = 0;
+    public String mensaje1;
+    // Generar un arreglo T=> String que almacene >> Nombre | % Apunte | % Disparo | ScoreFinal
     
     // Constructores
     public Hilo(){
@@ -47,6 +49,8 @@ public class Hilo implements Runnable{
                 Thread.sleep(generarTiempoApuntar());
                 System.out.println("Competidor " + this.nombreCompetidor + " apunta");
                 
+                // Generar un tiempo similar a PUNTUACION para generar el promedio, mostrarlo y luego acumularlo.
+                
                 // Tirador Dispara
                 Thread.sleep(generarTiempoDisparo());
                 System.out.println("Competidor " + this.nombreCompetidor + " dispara");
@@ -65,6 +69,16 @@ public class Hilo implements Runnable{
         
         System.out.println("Puntuacion total de " + this.nombreCompetidor + "= " + this.puntuacionTotal);
         
+        // Crear un ArrayList <T> (tablaCompetidor)
+        
+    }
+    
+    public void setMensaje1(String mensaje){
+        this.mensaje1 = mensaje;
+    }
+    
+    public String getMensaje1(){
+        return this.mensaje1;
     }
     
     // Metodos
