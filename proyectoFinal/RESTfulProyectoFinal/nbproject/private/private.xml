@@ -4,7 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/roger/Documents/GitKrakenRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/src/java/com/ulacit/Local.java</file>
-            <file>file:/C:/Users/roger/Documents/GitKrakenRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/roger/Documents/GitKrakenRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/src/java/com/ulacit/Local_dao.java</file>
+            <file>file:/C:/Users/roger/Documents/GitKrakenRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/src/java/com/ulacit/LocalService.java</file>
         </group>
     </open-files>
 </project-private>
