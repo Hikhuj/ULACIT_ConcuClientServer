@@ -1,13 +1,14 @@
 DROP DATABASE IF EXISTS `proyectofinal`;
 CREATE DATABASE IF NOT EXISTS `proyectofinal` DEFAULT CHARACTER SET utf8mb4;
+USE proyectofinal;
 
 DROP TABLE IF EXISTS `local_comercial`;
 DROP TABLE IF EXISTS `empleado`;
 DROP TABLE IF EXISTS `factura`;
 DROP TABLE IF EXISTS `cliente`;
-DROP TABLE IF EXISTS `articulo`;
-DROP TABLE IF EXISTS `proveedor`;
 DROP TABLE IF EXISTS `contacto_proveedor`;
+DROP TABLE IF EXISTS `proveedor`;
+DROP TABLE IF EXISTS `articulo`;
 
 CREATE TABLE local_comercial (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -64,16 +65,14 @@ CREATE TABLE cliente (
 	PRIMARY KEY ( id )
 );
 
-CREATE TABLE articulo (
+CREATE TABLE contacto_proveedor (
 	id INT NOT NULL AUTO_INCREMENT,
-	descripcion VARCHAR(200) NOT NULL,
-	precio DECIMAL NOT NULL,
-	categoria VARCHAR(100) NOT NULL,
-	disponible VARCHAR(1),
-	idProveedor INT,
-	cantidadDisponible INT,
-	PRIMARY KEY (id),
-	FOREIGN KEY (idProveedor) REFERENCES proveedor(id)
+    nombre VARCHAR(100) NOT NULL,
+    apellido1 VARCHAR(100) NOT NULL,
+    apellido2 VARCHAR(100),
+    telefono INT,
+    email VARCHAR(100),
+    PRIMARY KEY ( id )
 );
 
 CREATE TABLE proveedor (
@@ -88,12 +87,15 @@ CREATE TABLE proveedor (
     FOREIGN KEY (contactoProveedor) REFERENCES contacto_proveedor(id)
 );
 
-CREATE TABLE contacto_proveedor (
+CREATE TABLE articulo (
 	id INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    apellido1 VARCHAR(100) NOT NULL,
-    apellido2 VARCHAR(100),
-    telefono INT,
-    email VARCHAR(100),
-    PRIMARY KEY ( id )
+	descripcion VARCHAR(200) NOT NULL,
+	precio DECIMAL NOT NULL,
+	categoria VARCHAR(100) NOT NULL,
+	disponible VARCHAR(1),
+	idProveedor INT,
+	cantidadDisponible INT,
+	PRIMARY KEY (id),
+	FOREIGN KEY (idProveedor) REFERENCES proveedor(id)
 );
+
