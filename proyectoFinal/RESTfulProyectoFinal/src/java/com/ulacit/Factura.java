@@ -1,11 +1,17 @@
 package com.ulacit;
 
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author proyectoFinal
  */
-public class Factura {
+@XmlRootElement (name = "factura")
+public class Factura implements Serializable{
 
+    //atributos
     private int id;
     private int idCliente;
     private String emailCliente;
@@ -39,7 +45,8 @@ public class Factura {
     public int getId() {
         return id;
     }
-
+    
+    @XmlElement
     public void setId(int id) {
         this.id = id;
     }
@@ -48,6 +55,7 @@ public class Factura {
         return idCliente;
     }
 
+    @XmlElement
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
     }
@@ -56,6 +64,7 @@ public class Factura {
         return emailCliente;
     }
 
+    @XmlElement
     public void setEmailCliente(String emailCliente) {
         this.emailCliente = emailCliente;
     }
@@ -64,6 +73,7 @@ public class Factura {
         return nombreCliente;
     }
 
+    @XmlElement
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
@@ -72,6 +82,7 @@ public class Factura {
         return nombreCajero;
     }
 
+    @XmlElement
     public void setNombreCajero(String nombreCajero) {
         this.nombreCajero = nombreCajero;
     }
@@ -80,6 +91,7 @@ public class Factura {
         return fecha;
     }
 
+    @XmlElement
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
@@ -88,6 +100,7 @@ public class Factura {
         return hora;
     }
 
+    @XmlElement
     public void setHora(String hora) {
         this.hora = hora;
     }
@@ -96,6 +109,7 @@ public class Factura {
         return subtotal;
     }
 
+    @XmlElement
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
     }
@@ -104,6 +118,7 @@ public class Factura {
         return impuesto;
     }
 
+    @XmlElement
     public void setImpuesto(double impuesto) {
         this.impuesto = impuesto;
     }
@@ -112,6 +127,7 @@ public class Factura {
         return total;
     }
 
+    @XmlElement
     public void setTotal(double total) {
         this.total = total;
     }

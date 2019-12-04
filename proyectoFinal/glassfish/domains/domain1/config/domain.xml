@@ -63,6 +63,7 @@
   <servers>
     <server config-ref="server-config" name="server">
       <application-ref ref="__admingui" virtual-servers="__asadmin"></application-ref>
+      <application-ref ref="Lec09" virtual-servers="server"></application-ref>
       <application-ref ref="RESTfulProyectoFinal" virtual-servers="server"></application-ref>
       <resource-ref ref="jdbc/__TimerPool"></resource-ref>
       <resource-ref ref="jdbc/__default"></resource-ref>
@@ -465,10 +466,22 @@
   </secure-admin>
   <clusters></clusters>
   <applications>
-    <application context-root="/RESTfulProyectoFinal" object-type="user" name="RESTfulProyectoFinal" directory-deployed="true" location="file:/C:/Users/roger/Documents/GitKrakenRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/build/web/">
-      <property name="appLocation" value="file:/C:/Users/roger/Documents/GitKrakenRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/build/web/"></property>
+    <application context-root="/Lec09" object-type="user" directory-deployed="true" name="Lec09" location="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcuClientServer/clases/Lec09/build/web/">
       <property name="archiveType" value="war"></property>
+      <property name="appLocation" value="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcuClientServer/clases/Lec09/build/web/"></property>
       <property name="defaultAppName" value="web"></property>
+      <property name="keepSessions" value="true"></property>
+      <module name="Lec09">
+        <engine sniffer="webservices"></engine>
+        <engine sniffer="security"></engine>
+        <engine sniffer="web"></engine>
+      </module>
+    </application>
+    <application context-root="/RESTfulProyectoFinal" object-type="user" name="RESTfulProyectoFinal" directory-deployed="true" location="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/build/web/">
+      <property name="archiveType" value="war"></property>
+      <property name="appLocation" value="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcuClientServer/proyectoFinal/RESTfulProyectoFinal/build/web/"></property>
+      <property name="defaultAppName" value="web"></property>
+      <property name="keepSessions" value="true"></property>
       <module name="RESTfulProyectoFinal">
         <engine sniffer="weld"></engine>
         <engine sniffer="security"></engine>

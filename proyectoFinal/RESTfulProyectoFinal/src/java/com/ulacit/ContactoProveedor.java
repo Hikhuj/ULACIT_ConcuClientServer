@@ -1,10 +1,16 @@
 package com.ulacit;
 
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author proyectoFinal
  */
-public class ContactoProveedor {
+
+@XmlRootElement(name = "contactoProveedor")
+public class ContactoProveedor implements Serializable{
 
     //atributos
     private int id;
@@ -33,6 +39,7 @@ public class ContactoProveedor {
         return id;
     }
 
+    @XmlElement
     public void setId(int id) {
         this.id = id;
     }
@@ -41,6 +48,7 @@ public class ContactoProveedor {
         return telefono;
     }
 
+    @XmlElement
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
@@ -49,6 +57,7 @@ public class ContactoProveedor {
         return nombre;
     }
 
+    @XmlElement
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -57,6 +66,7 @@ public class ContactoProveedor {
         return apellido1;
     }
 
+    @XmlElement
     public void setApellido1(String apellido1) {
         this.apellido1 = apellido1;
     }
@@ -65,6 +75,7 @@ public class ContactoProveedor {
         return apellido2;
     }
 
+    @XmlElement
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
     }
@@ -73,6 +84,7 @@ public class ContactoProveedor {
         return correo;
     }
 
+    @XmlElement
     public void setCorreo(String correo) {
         this.correo = correo;
     }
