@@ -16,21 +16,19 @@ import java.util.List;
  *
  * @author roger
  */
-public class Local_dao {
+public class LocalComercial_dao {
     
-    public List<Local> getAllLocalList(){
+    public List<LocalComercial> getAllLocalList(){
         
-        List<Local> localList = null;
+        List<LocalComercial> localList = null;
         
-        // code here
         try{
+            
             Class.forName("com.mysql.jdbc.Driver");
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyectoFinal?useSSL=false", "root", "mysql");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyectoFinal?useSSL=false", "root", "mysql");
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyectoFinal?useSSL=false", "root", "mysql");
             
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM local");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM local_comercial");
             localList = new ArrayList<>();
             while(rs.next()){
                 int id = rs.getInt(1);
@@ -42,15 +40,18 @@ public class Local_dao {
                 String telefono = rs.getString(7);
                 String email = rs.getString(8);
                 
-                localList.add(new Local(id, direccion1, direccion2, provincia, canton, distrito, telefono, email));
+                localList.add(new LocalComercial(id, direccion1, direccion2, provincia, canton, distrito, telefono, email));
             }
             rs.close();
             stmt.close();
             con.close();
             
             return localList;
+            
         } catch(Exception e){
+            
             System.out.println(e);
+            
         }
         
         
