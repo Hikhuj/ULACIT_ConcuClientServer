@@ -1,30 +1,35 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 public class Proveedor {
 
     //atributos
     private int id;
-    private int telefono1;
-    private int telefono2;
-    private String proveedor;
-    private String correo;
-    private String direccion;
+    private String nombreProveedor;
+    private String paisProveedor;
+    private String provinciaEstadoProveedor;
+    private String nombreContactoProveedor;
+    private String apellido1ContactoProveedor;
+    private String apellido2ContactoProveedor;
+    private String correoElectronicoContactoProveedor;
+    private int telefonoOficinaProveedor;
+    
 
     //constructor vacio
     public Proveedor() {
     }
 
-    //constructor normal
-    public Proveedor(int id, int telefono1, int telefono2, String proveedor, String correo, String direccion) {
+    public Proveedor(int id, String nombreProveedor, String paisProveedor, String provinciaEstadoProveedor, String nombreContactoProveedor, String apellido1ContactoProveedor, String apellido2ContactoProveedor, String correoElectronicoContactoProveedor, int telefonoOficinaProveedor) {
         this.id = id;
-        this.telefono1 = telefono1;
-        this.telefono2 = telefono2;
-        this.proveedor = proveedor;
-        this.correo = correo;
-        this.direccion = direccion;
+        this.nombreProveedor = nombreProveedor;
+        this.paisProveedor = paisProveedor;
+        this.provinciaEstadoProveedor = provinciaEstadoProveedor;
+        this.nombreContactoProveedor = nombreContactoProveedor;
+        this.apellido1ContactoProveedor = apellido1ContactoProveedor;
+        this.apellido2ContactoProveedor = apellido2ContactoProveedor;
+        this.correoElectronicoContactoProveedor = correoElectronicoContactoProveedor;
+        this.telefonoOficinaProveedor = telefonoOficinaProveedor;
     }
 
-    //setters y getters
     public int getId() {
         return id;
     }
@@ -33,50 +38,73 @@ public class Proveedor {
         this.id = id;
     }
 
-    public int getTelefono1() {
-        return telefono1;
+    public String getNombreProveedor() {
+        return nombreProveedor;
     }
 
-    public void setTelefono1(int telefono1) {
-        this.telefono1 = telefono1;
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
     }
 
-    public int getTelefono2() {
-        return telefono2;
+    public String getPaisProveedor() {
+        return paisProveedor;
     }
 
-    public void setTelefono2(int telefono2) {
-        this.telefono2 = telefono2;
+    public void setPaisProveedor(String paisProveedor) {
+        this.paisProveedor = paisProveedor;
     }
 
-    public String getProveedor() {
-        return proveedor;
+    public String getProvinciaEstadoProveedor() {
+        return provinciaEstadoProveedor;
     }
 
-    public void setProveedor(String proveedor) {
-        this.proveedor = proveedor;
+    public void setProvinciaEstadoProveedor(String provinciaEstadoProveedor) {
+        this.provinciaEstadoProveedor = provinciaEstadoProveedor;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getNombreContactoProveedor() {
+        return nombreContactoProveedor;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setNombreContactoProveedor(String nombreContactoProveedor) {
+        this.nombreContactoProveedor = nombreContactoProveedor;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getApellido1ContactoProveedor() {
+        return apellido1ContactoProveedor;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setApellido1ContactoProveedor(String apellido1ContactoProveedor) {
+        this.apellido1ContactoProveedor = apellido1ContactoProveedor;
     }
 
-    //toString
+    public String getApellido2ContactoProveedor() {
+        return apellido2ContactoProveedor;
+    }
+
+    public void setApellido2ContactoProveedor(String apellido2ContactoProveedor) {
+        this.apellido2ContactoProveedor = apellido2ContactoProveedor;
+    }
+
+    public String getCorreoElectronicoContactoProveedor() {
+        return correoElectronicoContactoProveedor;
+    }
+
+    public void setCorreoElectronicoContactoProveedor(String correoElectronicoContactoProveedor) {
+        this.correoElectronicoContactoProveedor = correoElectronicoContactoProveedor;
+    }
+
+    public int getTelefonoOficinaProveedor() {
+        return telefonoOficinaProveedor;
+    }
+
+    public void setTelefonoOficinaProveedor(int telefonoOficinaProveedor) {
+        this.telefonoOficinaProveedor = telefonoOficinaProveedor;
+    }
+
     @Override
     public String toString() {
-        return "Proveedor{" + "id=" + id + ", telefono1=" + telefono1 + ", telefono2=" + telefono2 + ", proveedor=" + proveedor + ", correo=" + correo + ", direccion=" + direccion + '}';
+        return "Proveedor{" + "id=" + id + ", nombreProveedor=" + nombreProveedor + ", paisProveedor=" + paisProveedor + ", provinciaEstadoProveedor=" + provinciaEstadoProveedor + ", nombreContactoProveedor=" + nombreContactoProveedor + ", apellido1ContactoProveedor=" + apellido1ContactoProveedor + ", apellido2ContactoProveedor=" + apellido2ContactoProveedor + ", correoElectronicoContactoProveedor=" + correoElectronicoContactoProveedor + ", telefonoOficinaProveedor=" + telefonoOficinaProveedor + '}';
     }
 
 }

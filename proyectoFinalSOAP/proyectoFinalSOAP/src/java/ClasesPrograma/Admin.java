@@ -1,4 +1,4 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 public class Admin extends Empleado {
 
@@ -11,12 +11,12 @@ public class Admin extends Empleado {
     }
 
     //constructor herencia
-    public Admin(int id, String usuario, String nombre1, String nombre2, String apellido1, String apellido2, String email, String horarioDefinido) {
-        super(id, usuario, nombre1, nombre2, apellido1, apellido2, email);
+
+    public Admin(int id, String usuario, String contrasenia, String nombre1, String nombre2, String apellido1, String apellido2, String email, String horarioDefinido) {
+        super(id, usuario, contrasenia, nombre1, nombre2, apellido1, apellido2, email);
         this.horarioDefinido = horarioDefinido;
     }
 
-    //setters y getters
     public String getHorarioDefinido() {
         return horarioDefinido;
     }
@@ -25,7 +25,6 @@ public class Admin extends Empleado {
         this.horarioDefinido = horarioDefinido;
     }
 
-    //toString con herencia
     @Override
     public String toString() {
         return "Admin{" + super.toString() + "horarioDefinido=" + horarioDefinido + '}';

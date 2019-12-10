@@ -1,4 +1,4 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 public interface Descuento {
 

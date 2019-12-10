@@ -1,4 +1,4 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

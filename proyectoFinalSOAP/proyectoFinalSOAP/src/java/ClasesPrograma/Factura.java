@@ -1,4 +1,4 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 //atributos
 public class Factura {
@@ -13,13 +13,13 @@ public class Factura {
     private double subtotal;
     private double impuesto;
     private double total;
+    private int[] articulos;
 
     //constructor vacio
     public Factura() {
     }
 
-    //constructor normal
-    public Factura(int id, int idCliente, String emailCliente, String nombreCliente, String nombreCajero, String fecha, String hora, double subtotal, double impuesto, double total) {
+    public Factura(int id, int idCliente, String emailCliente, String nombreCliente, String nombreCajero, String fecha, String hora, double subtotal, double impuesto, double total, int[] articulos) {
         this.id = id;
         this.idCliente = idCliente;
         this.emailCliente = emailCliente;
@@ -30,9 +30,9 @@ public class Factura {
         this.subtotal = subtotal;
         this.impuesto = impuesto;
         this.total = total;
+        this.articulos = articulos;
     }
 
-    //setters y getters
     public int getId() {
         return id;
     }
@@ -113,10 +113,17 @@ public class Factura {
         this.total = total;
     }
 
-    //toString
+    public int[] getArticulos() {
+        return articulos;
+    }
+
+    public void setArticulos(int[] articulos) {
+        this.articulos = articulos;
+    }
+
     @Override
     public String toString() {
-        return "Factura{" + "id=" + id + ", idCliente=" + idCliente + ", emailCliente=" + emailCliente + ", nombreCliente=" + nombreCliente + ", nombreCajero=" + nombreCajero + ", fecha=" + fecha + ", hora=" + hora + ", subtotal=" + subtotal + ", impuesto=" + impuesto + ", total=" + total + '}';
+        return "Factura{" + "id=" + id + ", idCliente=" + idCliente + ", emailCliente=" + emailCliente + ", nombreCliente=" + nombreCliente + ", nombreCajero=" + nombreCajero + ", fecha=" + fecha + ", hora=" + hora + ", subtotal=" + subtotal + ", impuesto=" + impuesto + ", total=" + total + ", articulos=" + articulos + '}';
     }
 
 }

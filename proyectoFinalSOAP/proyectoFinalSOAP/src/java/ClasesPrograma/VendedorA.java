@@ -1,4 +1,4 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 public class VendedorA extends Empleado implements Descuento {
 
@@ -11,10 +11,12 @@ public class VendedorA extends Empleado implements Descuento {
     }
 
     //constructor con hherencia
-    public VendedorA(int id, String usuario, String nombre1, String nombre2, String apellido1, String apellido2, String email, int ClientesAtendidos) {
-        super(id, usuario, nombre1, nombre2, apellido1, apellido2, email);
+
+    public VendedorA(int id, String usuario, String contrasenia, String nombre1, String nombre2, String apellido1, String apellido2, String email, int ClientesAtendidos) {
+        super(id, usuario, contrasenia, nombre1, nombre2, apellido1, apellido2, email);
         this.ClientesAtendidos = ClientesAtendidos;
     }
+    
 
     //setters y getters
     public int getClientesAtendidos() {

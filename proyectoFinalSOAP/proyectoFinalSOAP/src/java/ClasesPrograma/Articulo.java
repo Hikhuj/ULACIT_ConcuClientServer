@@ -1,32 +1,34 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 public class Articulo {
 
     //atributos
     private int id;
-    private int idProveedor;
-    private int cantidadDisponible;
+    private String nombre;
     private String descripcion;
     private String categoria;
     private double precio;
     private char disponible;
+    private String marca;
+    private int idProveedor;
+    private int cantidadDisponible;
 
     //constructor vacio
     public Articulo() {
     }
 
-    ///constructor normal
-    public Articulo(int id, int idProveedor, int cantidadDisponible, String descripcion, String categoria, double precio, char disponible) {
+    public Articulo(int id, String nombre, String descripcion, String categoria, double precio, char disponible, String marca, int idProveedor, int cantidadDisponible) {
         this.id = id;
-        this.idProveedor = idProveedor;
-        this.cantidadDisponible = cantidadDisponible;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.precio = precio;
         this.disponible = disponible;
+        this.marca = marca;
+        this.idProveedor = idProveedor;
+        this.cantidadDisponible = cantidadDisponible;
     }
 
-    //setters y getters
     public int getId() {
         return id;
     }
@@ -35,20 +37,12 @@ public class Articulo {
         this.id = id;
     }
 
-    public int getIdProveedor() {
-        return idProveedor;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
-    }
-
-    public int getCantidadDisponible() {
-        return cantidadDisponible;
-    }
-
-    public void setCantidadDisponible(int cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
@@ -83,10 +77,33 @@ public class Articulo {
         this.disponible = disponible;
     }
 
-    //toString
-    @Override
-    public String toString() {
-        return "Articulo{" + "id=" + id + ", idProveedor=" + idProveedor + ", cantidadDisponible=" + cantidadDisponible + ", descripcion=" + descripcion + ", categoria=" + categoria + ", precio=" + precio + ", disponible=" + disponible + '}';
+    public String getMarca() {
+        return marca;
     }
 
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    public int getCantidadDisponible() {
+        return cantidadDisponible;
+    }
+
+    public void setCantidadDisponible(int cantidadDisponible) {
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    @Override
+    public String toString() {
+        return "Articulo{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", categoria=" + categoria + ", precio=" + precio + ", disponible=" + disponible + ", marca=" + marca + ", idProveedor=" + idProveedor + ", cantidadDisponible=" + cantidadDisponible + '}';
+    }
+    
 }

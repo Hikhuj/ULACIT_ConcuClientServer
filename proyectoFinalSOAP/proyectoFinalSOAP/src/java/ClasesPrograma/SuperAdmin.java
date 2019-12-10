@@ -1,9 +1,9 @@
-package clienteproyectofinalsoap;
+package ClasesPrograma;
 
 public class SuperAdmin extends Empleado {
 
     //atributo
-    private String asiganrLocal;
+    private String asignarLocal;
 
     //constructor super
     public SuperAdmin() {
@@ -11,24 +11,23 @@ public class SuperAdmin extends Empleado {
     }
 
     //constructor herencia
-    public SuperAdmin(int id, String usuario, String nombre1, String nombre2, String apellido1, String apellido2, String email, String asiganrLocal) {
-        super(id, usuario, nombre1, nombre2, apellido1, apellido2, email);
-        this.asiganrLocal = asiganrLocal;
+
+    public SuperAdmin(int id, String usuario, String contrasenia, String nombre1, String nombre2, String apellido1, String apellido2, String email, String asignarLocal) {
+        super(id, usuario, contrasenia, nombre1, nombre2, apellido1, apellido2, email);
+        this.asignarLocal = asignarLocal;
+    }
+    
+    public String getAsignarLocal() {
+        return asignarLocal;
     }
 
-    //setters y getters
-    public String getAsiganrLocal() {
-        return asiganrLocal;
+    public void setAsignarLocal(String asignarLocal) {
+        this.asignarLocal = asignarLocal;
     }
 
-    public void setAsiganrLocal(String asiganrLocal) {
-        this.asiganrLocal = asiganrLocal;
-    }
-
-    //toString herencia
     @Override
     public String toString() {
-        return "SuperAdmin{" + super.toString() + "asiganrLocal=" + asiganrLocal + '}';
+        return "SuperAdmin{" + super.toString() + "asignarLocal=" + asignarLocal + '}';
     }
 
 }

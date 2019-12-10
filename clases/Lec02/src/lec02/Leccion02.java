@@ -21,6 +21,7 @@ public class Leccion02 {
     
     public static void main(String[] args) {
         // TODO code application logic here
+        SeleccionFutbol seleccion = new SeleccionFutbol(1, "as", "as", 1);
         Entrenador delBosque = new Entrenador(1, "Vicente", "Del Bosque", 70, "2AR7068");
         Futbolista ronaldinho = new Futbolista(2, "Juan", "Ronaldinho", 45, 10, "medio");
         Masajista raulMartinez = new Masajista(3, "Raul", "Martinez", 50, "Licenciado en Fisioterapia", 25);
