@@ -489,11 +489,14 @@
         <engine sniffer="web"></engine>
       </module>
     </application>
-    <application context-root="/proyectoFinalSOAP" object-type="user" name="proyectoFinalSOAP" directory-deployed="true" location="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcuClientServer/proyectoFinalSOAP/proyectoFinalSOAP/build/web/">
-      <property name="appLocation" value="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcuClientServer/proyectoFinalSOAP/proyectoFinalSOAP/build/web/"></property>
+    <application context-root="/proyectoFinalSOAP" object-type="user" name="proyectoFinalSOAP" directory-deployed="true" location="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcurrenteProyecto/proyectoFinalSOAP/build/web/">
       <property name="archiveType" value="war"></property>
+      <property name="glassfish-web:j2eeType=WebModule,name=//server/proyectoFinalSOAP,J2EEApplication=null,J2EEServer=server" value="rO0ABXNyABFqYXZhLmxhbmcuSW50ZWdlchLioKT3gYc4AgABSQAFdmFsdWV3AwABOnhyABBqYXZh
+LmxhbmcuTnVtYmVyhqyVHQuU4IsCAAB3AwABOnhwAAAAAA=="></property>
+      <property name="appLocation" value="file:/C:/Users/roger/Documents/PersonalRepos/ULACIT_ConcurrenteProyecto/proyectoFinalSOAP/build/web/"></property>
       <property name="defaultAppName" value="web"></property>
       <module name="proyectoFinalSOAP">
+        <engine sniffer="webservices"></engine>
         <engine sniffer="security"></engine>
         <engine sniffer="web"></engine>
       </module>
